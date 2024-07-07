@@ -109,7 +109,9 @@ class Blogger {
       WHERE e.id='.$id.'
     ');
     $sql->execute();
-
+  	if ($sql->hasNext()==false) {
+  		return false;
+  	}
     return $this->fromSql($sql);
   }
 
